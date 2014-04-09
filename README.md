@@ -1,4 +1,4 @@
 period-pickup
 =============
 
-Period pickup for AngularJS
+Period picker for AngularJS
