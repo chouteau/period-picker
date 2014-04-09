@@ -9,72 +9,45 @@
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
   <body ng-controller="SampleController">
-    <div class="wrapper">
-      <header>
-        <h1>Period-pickup</h1>
-        <p>Period pickup for AngularJS</p>
-
 	<div class="container">
-		Periode : <period-picker ng-model="period"></period-picker>
-		<br />
-		<br />
-		<pre>{{period|json}}</pre>
+		<div class="row">
+			<header class="col-lg-3">
+				<h1>Period-pickup</h1>
+				<p>Period pickup for AngularJS</p>
+
+				<ul>
+					<li><a href="https://github.com/chouteau/period-pickup/zipball/master">Download <strong>ZIP File</strong></a></li>
+					<li><a href="https://github.com/chouteau/period-pickup/tarball/master">Download <strong>TAR Ball</strong></a></li>
+					<li><a href="https://github.com/chouteau/period-pickup">View On <strong>GitHub</strong></a></li>
+				</ul>
+			</header>
+
+			<section class="col-lg-9">
+
+				<h1>Welcome to Period Pickup.</h1>
+
+				<p>Period : <period-picker ng-model="period"></period-picker></p>
+
+				<pre>{{period|json}}</pre>
+
+				<p class="view"><a href="https://github.com/chouteau/period-pickup">View the Project on GitHub <small>chouteau/period-pickup</small></a></p>
+
+			</section>
+		</div>
+		<div class="row">
+			<footer>
+				<p>This project is maintained by <a href="https://github.com/chouteau">chouteau</a></p>
+				<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+			</footer>
+		</div>
+
 	</div>
-
-
-
-        <p class="view"><a href="https://github.com/chouteau/period-pickup">View the Project on GitHub <small>chouteau/period-pickup</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/chouteau/period-pickup/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/chouteau/period-pickup/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/chouteau/period-pickup">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-
-<h1>Welcome to Period Pickup.</h1>
-
-
-
-<hr/>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/chouteau">chouteau</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
     <script src="javascripts/scale.fix.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
@@ -94,44 +67,6 @@ $ git checkout gh-pages
 			});
 
 		moment.lang('fr', {
-			months: "janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre".split("_"),
-			monthsShort: "janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.".split("_"),
-			weekdays: "dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi".split("_"),
-			weekdaysShort: "dim._lun._mar._mer._jeu._ven._sam.".split("_"),
-			weekdaysMin: "Di_Lu_Ma_Me_Je_Ve_Sa".split("_"),
-			longDateFormat: {
-				LT: "HH:mm",
-				L: "DD/MM/YYYY",
-				LL: "D MMMM YYYY",
-				LLL: "D MMMM YYYY LT",
-				LLLL: "dddd D MMMM YYYY LT"
-			},
-			calendar: {
-				sameDay: "[Aujourd'hui à] LT",
-				nextDay: '[Demain à] LT',
-				nextWeek: 'dddd [à] LT',
-				lastDay: '[Hier à] LT',
-				lastWeek: 'dddd [dernier à] LT',
-				sameElse: 'L'
-			},
-			relativeTime: {
-				future: "dans %s",
-				past: "il y a %s",
-				s: "quelques secondes",
-				m: "une minute",
-				mm: "%d minutes",
-				h: "une heure",
-				hh: "%d heures",
-				d: "un jour",
-				dd: "%d jours",
-				M: "un mois",
-				MM: "%d mois",
-				y: "une année",
-				yy: "%d années"
-			},
-			ordinal: function (number) {
-				return number + (number === 1 ? 'er' : 'ème');
-			},
 			week: {
 				dow: 0, // Monday is the first day of the week.
 				doy: 4  // The week that contains Jan 4th is the first week of the year.
@@ -139,7 +74,5 @@ $ git checkout gh-pages
 		});
 
 	</script>
-
-    
   </body>
 </html>
