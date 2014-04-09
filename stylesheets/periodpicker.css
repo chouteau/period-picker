@@ -1,0 +1,49 @@
+﻿
+.today {
+	border-color : red ! important;
+	border-style : solid;
+	border-bottom-width : 2px;
+	font-weight : bold;
+}
+
+.in-month {
+	font-weight : bold;
+	cursor : pointer;
+}
+
+.in-interval {
+	background-color : blue ! important;
+	color : white ! important;
+}
+
+.day-disabled {
+	color : #d5d5d4;
+}
+
+.calendar-drowdown {
+	cursor : pointer ! important;
+}
+
+.calendar-selected-period {
+	cursor : pointer;
+}
+
+.calendar {
+	float : left;
+}
+
+.calendar-picker {
+	border : 1px solid gray;
+	position : absolute;
+	background-color : white;
+	padding : 5px;
+}
+
+.week {
+	font-size : x-small;
+	color : #d5d5d4;
+}
+
+.week-end {
+	background-color : lightcyan;
+}

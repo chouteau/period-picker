@@ -1,9 +1,13 @@
-<!doctype html>
-<html>
+﻿<!doctype html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Period-pickup by chouteau</title>
+    <title>Period pickup for AngularJS</title>
+
+	<link href="stylesheets/periodpicker.css" rel="stylesheet" type="text/css" />
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -12,11 +16,20 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body ng-controller="SampleController">
     <div class="wrapper">
       <header>
         <h1>Period-pickup</h1>
         <p>Period pickup for AngularJS</p>
+
+	<div class="container">
+		Periode : <period-picker ng-model="period"></period-picker>
+		<br />
+		<br />
+		<pre>{{period|json}}</pre>
+	</div>
+
+
 
         <p class="view"><a href="https://github.com/chouteau/period-pickup">View the Project on GitHub <small>chouteau/period-pickup</small></a></p>
 
@@ -29,7 +42,12 @@
       </header>
       <section>
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+
+<h1>Welcome to Period Pickup.</h1>
+
+
+
+<hr/>
 
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
@@ -40,15 +58,7 @@ $ git checkout gh-pages
 
 <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
 
 <h3>
 <a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
@@ -66,6 +76,70 @@ $ git checkout gh-pages
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+	<script src="javascripts/periodpicker.js"></script>
+	<script type="text/javascript">
+		angular.module('app', ['period-picker'])
+			.controller('SampleController', function ($scope) {
+				var year = moment().year();
+				$scope.period = {
+					name: 'Today',
+					from: null,
+					to: null,
+					min: moment([year - 1]),
+					max: moment(),
+				};
+			});
+
+		moment.lang('fr', {
+			months: "janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre".split("_"),
+			monthsShort: "janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.".split("_"),
+			weekdays: "dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi".split("_"),
+			weekdaysShort: "dim._lun._mar._mer._jeu._ven._sam.".split("_"),
+			weekdaysMin: "Di_Lu_Ma_Me_Je_Ve_Sa".split("_"),
+			longDateFormat: {
+				LT: "HH:mm",
+				L: "DD/MM/YYYY",
+				LL: "D MMMM YYYY",
+				LLL: "D MMMM YYYY LT",
+				LLLL: "dddd D MMMM YYYY LT"
+			},
+			calendar: {
+				sameDay: "[Aujourd'hui à] LT",
+				nextDay: '[Demain à] LT',
+				nextWeek: 'dddd [à] LT',
+				lastDay: '[Hier à] LT',
+				lastWeek: 'dddd [dernier à] LT',
+				sameElse: 'L'
+			},
+			relativeTime: {
+				future: "dans %s",
+				past: "il y a %s",
+				s: "quelques secondes",
+				m: "une minute",
+				mm: "%d minutes",
+				h: "une heure",
+				hh: "%d heures",
+				d: "un jour",
+				dd: "%d jours",
+				M: "un mois",
+				MM: "%d mois",
+				y: "une année",
+				yy: "%d années"
+			},
+			ordinal: function (number) {
+				return number + (number === 1 ? 'er' : 'ème');
+			},
+			week: {
+				dow: 0, // Monday is the first day of the week.
+				doy: 4  // The week that contains Jan 4th is the first week of the year.
+			}
+		});
+
+	</script>
+
     
   </body>
 </html>
